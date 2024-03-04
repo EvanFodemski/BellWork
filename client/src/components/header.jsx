@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import Home from '../pages/homePage';
+import Login from '../pages/login';
+import Signup from '../pages/signup';
 
 // import Nav from './Navbar';
 // import '../index.css'
@@ -9,8 +12,8 @@ function Header() {
         switch (currentPage) {
             case 'Home':
                 return <Home />
-            case 'SignUp':
-                return <SignUp />
+            case 'Signup':
+                return <Signup />
             case 'Login':
                 return <Login />
             default:
@@ -28,10 +31,10 @@ function Header() {
             <div className="mainheader">
             <div className="sigloghead">
                 <div className="signup">
-                    <NavLink to="/" activeclassname="active">Sign Up</NavLink>
+                    <NavLink to="/Signup" activeclassname="active">Sign Up</NavLink>
                     </div>
                     <div className="signin">
-                    <NavLink to="/" activeclassname="active">Sign In</NavLink>
+                    <NavLink to="/Login" activeclassname="active">Log In</NavLink>
                     </div>
                     
                 </div>

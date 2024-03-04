@@ -15,7 +15,7 @@ const typeDefs = gql`
         liftText: String!
         createdAt: String!
         liftType: String!
-        excercises: [Excercises]!
+        excercises: String!
     }
 
     type Excercises {
@@ -42,7 +42,7 @@ const typeDefs = gql`
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addLift(name: String!, liftText: String!, liftType: String!, excercises: [Excercises]!): Lift
+        addLift(name: String!, liftText: String!, liftType: String!, excercises: String!): Lift
         addExcercise(liftId: ID!, name: String!, sets: Int!, reps: Int!, specifics: String!): Lift
         removeLift(liftId: ID!): Lift
         removeExcercise(liftId: ID!, excerciseId: ID!): Lift
