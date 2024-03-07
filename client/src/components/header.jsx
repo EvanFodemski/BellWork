@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import auth from '../utils/auth';
 import Home from '../pages/homePage';
 import Login from '../pages/login';
 import Signup from '../pages/signup';
@@ -21,35 +22,39 @@ function Header() {
         }
     };
 
+    const loggedIn = auth.loggedIn();
+
+    const handleLogout = () => {
+        auth.logout();
+    };
+
     return (
         <div className="headermainContainer">
             <div className="headerverytop">
                 Workout on your Time
             </div>
-           
-
+            
             <div className="mainheader">
-            <div className="sigloghead">
-                <div className="signup">
-                    <NavLink to="/Signup" activeclassname="active">Sign Up</NavLink>
-                    </div>
-                    <div className="signin">
-                    <NavLink to="/Login" activeclassname="active">Log In</NavLink>
-                    </div>
-                    
-                </div>
-
                 <img className='headerlogo' src="/bellwork.png" alt="barbell" />
-                <div className="leftheaderlinks">
+
+                <div className="rightheaderlinks">
                     <NavLink to="/" activeclassname="active">Home</NavLink>
-                    <NavLink to="/" activeclassname="active">My Workouts</NavLink>
-                    <NavLink to="/" activeclassname="active">Social</NavLink>
+                    <NavLink to="/myworkouts" activeclassname="active">My Workouts</NavLink>
+                    <NavLink to="/social" activeclassname="active">Social</NavLink>
+                    {loggedIn ? (
+                        <>
+                            <NavLink to="/" onClick={handleLogout} className="logout">Logout</NavLink>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink to="/signup" className="signup">Sign Up</NavLink>
+                            <NavLink to="/login" className="signin">Log In</NavLink>
+                        </>
+                    )}
                 </div>
-                
-                
             </div>
         </div>
-    )
+    );
 }
 
 export default Header;

@@ -1,11 +1,11 @@
-const { User, Lift } = require ('../models')
+const { User, Lift } = require('../models')
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         users: async () => User.find().populate('lifts'),
 
-        user: async (_, { username}) => User.findOne({ username }).populate('lifts'),
+        user: async (_, { username }) => User.findOne({ username }).populate('lifts'),
 
         lifts: async (_, args) => { return Lift.find() },
 
@@ -40,7 +40,35 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        createWorkout: async (parent, { name, targets, liftComments, excercises, userId }, context) => {
+            if
+                (userId) {
+                const lift = await Lift.create({ name, targets, liftComments, excercises, userId });
+
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $push: { lifts: lift._id } },
+                )
+                return
+
+            }
+        },
+        addExercise: async (_, { liftId, name, sets, reps, comments }) => {
+            return Lift.findOneAndUpdate(
+                { _id: liftId },
+                {
+                    $addToSet: { excercises: { name, sets, reps, comments } }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            );
+        },
+        
     }
-};
+}
+
 
 module.exports = resolvers;
+

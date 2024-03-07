@@ -9,15 +9,15 @@ const liftSchema = new Schema({
     },
     createdBy: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
     },
-    liftText: {
+    liftComments: {
         type: String,
         required: true,
         trim: true,
     },
-    liftType: {
+    Targets: {
         type: String,
         enum: ['Upper Body', 'Lower Body', 'Cardio', 'Full Body', 'Other'],
     },
@@ -26,7 +26,6 @@ const liftSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
     },
-
     excercises: [
         {
             name: {
@@ -37,21 +36,20 @@ const liftSchema = new Schema({
             sets: {
                 type: Number,
                 required: true,
-                min: 1,
-                max: 99,
             },
             reps: {
                 type: Number,
                 required: true,
-                min: 1,
-                max: 99,
             },
-            specifics: {
+            comments: {
                 type: String,
-                // Ie. If you dont have a barbell bench press use dumbells
+                required: false,
+                trim: true,
             },
-        },
-    ],
+        }
+    ]
+
+
 });
 
 const Lift = model('Lift', liftSchema);

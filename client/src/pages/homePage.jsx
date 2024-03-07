@@ -1,4 +1,5 @@
 import { useQuery, useMutation } from "@apollo/client";
+import CreateWorkout from "./createworkout";
 
 
 function Home() {
@@ -10,18 +11,14 @@ function Home() {
                 Bell Work is a one of a kind workout program builder.
             </div>
             <div className="learnmore">Learn More</div>
-            <a href="#bottomhome" className="startbuild">Build a Program for Free</a>
+            <a href="createworkout" className="startbuild">Create A Workout</a>
             <div className="orange-line"></div>
             <div className="homefill"></div>
             <img className="thorhome" src="/thornew.jpg" alt="" />
             
                 <div id="bottomhome" className="homelowermain">
 
-                    <div className="box-container">
-                        <div className="box"></div>
-                        <div className="box"></div>
-                        <div className="box"></div>
-                    </div>
+                   
                 </div>
 
            
