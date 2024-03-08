@@ -49,7 +49,7 @@ const resolvers = {
                     { _id: userId },
                     { $push: { lifts: lift._id } },
                 )
-                return
+                return lift;
 
             }
         },

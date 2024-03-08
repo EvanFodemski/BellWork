@@ -1,3 +1,11 @@
+:root {
+    --orange: #D9B09C;
+    --dark: #2c3531;
+    --lessDark: #116466;
+    --light: #d1e8e2;
+    --lessOrange: #FFCB9A;
+  }
+
 .login-container{
     display: flex;
     margin-top: 15%;
@@ -13,6 +21,13 @@
     align-items: center;
 
 }
- .createtest{
-    margin-top: 20%;
- }
+
+.createcontainer{
+    margin-top: 15%;
+    margin-left: 5rem;
+}
+
+
+
+
+ 
