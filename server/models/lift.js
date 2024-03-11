@@ -17,7 +17,7 @@ const liftSchema = new Schema({
         required: true,
         trim: true,
     },
-    Targets: {
+    targets: {
         type: String,
         enum: ['Upper Body', 'Lower Body', 'Cardio', 'Full Body', 'Other'],
     },
