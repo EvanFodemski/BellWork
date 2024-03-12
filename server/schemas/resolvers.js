@@ -5,11 +5,21 @@ const resolvers = {
     Query: {
         users: async () => User.find().populate('lifts'),
 
-        user: async (_, { username }) => User.findOne({ username }).populate('lifts'),
+        user: async (_, { _id }) => User.findOne({ _id }).populate('lifts'),
 
         lifts: async (_, args) => { return Lift.find() },
 
         lift: async (_, { _id }) => Lift.findById(_id),
+
+        excercises: async (_, { liftId }) => {
+            const lift = await Lift.findById(liftId);
+
+            if(!lift) {
+                throw new Error('No lift found with this id!');
+            }
+            return lift.excercises;
+        },
+ 
 
         me: async (_, __, { user }) => {
             if (user) {

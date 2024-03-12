@@ -37,3 +37,4 @@ mutation CreateWorkout($name: String!, $targets: String!, $userId: ID!, $liftCom
   }
 }
 `;
+
