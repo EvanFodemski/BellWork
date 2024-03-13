@@ -38,3 +38,12 @@ mutation CreateWorkout($name: String!, $targets: String!, $userId: ID!, $liftCom
 }
 `;
 
+export const ADD_LIFT=gql`
+mutation AddLiftToYours($userId: ID!, $liftId: ID!) {
+  addLiftToYours(userId: $userId, liftId: $liftId) {
+    _id
+    email
+    username
+  }
+}
+`;

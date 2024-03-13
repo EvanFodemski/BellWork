@@ -45,6 +45,7 @@ const typeDefs = gql`
         createWorkout(name: String!, targets: String!, liftComments: String, userId: ID!): Lift
         addExercise(liftId: ID!, name: String!, sets: Int!, reps: Int!, comments: String): Lift
         removeLift(liftId: ID!): Lift
+        addLiftToYours(userId: ID!, liftId: ID!): User
     }
 `;
 

@@ -7,6 +7,7 @@ import Home from './pages/homePage.jsx'
 import Login from './pages/login.jsx'
 import Signup from './pages/signup.jsx'
 import CreateWorkout from './pages/createworkout.jsx'
+import AllWorkouts from './pages/allWorkouts.jsx'
 import './index.css'
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'createworkout',
         element: <CreateWorkout />
+      },
+      {
+        path: 'allworkouts',
+        element: <AllWorkouts />
       }
     ]
   }

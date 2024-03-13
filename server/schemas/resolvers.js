@@ -75,6 +75,28 @@ const resolvers = {
                 }
             );
         },
+
+        addLiftToYours: async (_, {userId, liftId}) => {
+            try{
+                const user = await User.findById(userId);
+                if(!user) {
+                    throw new Error('No user with this id!');
+                }
+
+                const lift = await Lift.findById(liftId);
+                if(!lift) {
+                    throw new Error('No lift with this id!');
+                }
+
+                user.lifts.push(lift);
+                await user.save();
+                return user;
+            } catch (error) {
+                throw new Error(error);
+
+
+            }
+        }
         
     }
 }

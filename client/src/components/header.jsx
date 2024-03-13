@@ -40,7 +40,7 @@ function Header() {
                 <div className="rightheaderlinks">
                     <NavLink to="/" activeclassname="active">Home</NavLink>
                     <NavLink to="/createworkout" activeclassname="active">My Workouts</NavLink>
-                    <NavLink to="/social" activeclassname="active">All Workouts</NavLink>
+                    <NavLink to="/allworkouts" activeclassname="active">All Workouts</NavLink>
                     {loggedIn ? (
                         <>
                             <NavLink to="/" onClick={handleLogout} className="logout">Logout</NavLink>
