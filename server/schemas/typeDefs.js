@@ -15,6 +15,7 @@ const typeDefs = gql`
         targets: String!
         liftComments: String
         createdAt: String!
+        excercises: [Excercise]
     }
 
     type Excercise {

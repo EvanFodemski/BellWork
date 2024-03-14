@@ -2,14 +2,22 @@ import { gql } from '@apollo/client';
 
 export const  GET_LIFTS = gql`
 query Lifts {
-    lifts {
-      createdAt
-      liftComments
-      name
-      targets
+  lifts {
+    _id
+    createdAt
+    createdBy
+    excercises {
       _id
+      comments
+      name
+      reps
+      sets
     }
+    liftComments
+    name
+    targets
   }
+}
 `;
 
 export const ACTIVE_USER_LIFTS = gql`
@@ -21,6 +29,13 @@ query User($id: ID!) {
       liftComments
       name
       targets
+      excercises {
+        _id
+        comments
+        name
+        reps
+        sets
+      }
     }
   }
 }

@@ -5,29 +5,29 @@
   --light: #d1e8e2;
   --lessOrange: #FFCB9A;
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.headerverytop{
+.headerverytop {
   z-index: 999;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   height: 1rem;
   background-color: var(--orange);
   width: 100%;
-  position: fixed; 
-  top: 0; 
+  position: fixed;
+  top: 0;
   left: 0;
   color: white;
-  font-family:'Courier New', Courier, monospace
+  font-family: 'Courier New', Courier, monospace
 }
 
-.mainheader{
+.mainheader {
   z-index: 999;
   height: 120px;
   width: 100%;
@@ -39,11 +39,10 @@ body {
 
 }
 
-.headerlogo{
+.headerlogo {
   width: 250px;
   margin-top: 25px;
 }
-
 
 .rightheaderlinks {
   display: flex;
@@ -51,12 +50,12 @@ body {
   font-size: 20px;
   margin-right: 3rem;
   margin-top: 2.5rem;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .rightheaderlinks a {
   text-decoration: none;
-  color: #333; 
+  color: #333;
 }
 
 .rightheaderlinks a.active {
@@ -64,15 +63,13 @@ body {
   font-weight: bold;
 }
 
-
-
 .home-container {
   display: flex;
   justify-content: flex-end;
   position: relative;
 }
 
- .orange-line {
+.orange-line {
   position: absolute;
   left: 0;
   height: 1400px;
@@ -81,8 +78,7 @@ body {
   bottom: 0;
   background-color: var(--orange);
   transform: rotate(25deg);
-} 
-
+}
 
 .homefill {
   position: absolute;
@@ -93,11 +89,11 @@ body {
   background-color: var(--orange);
 }
 
-.thorhome{
+.thorhome {
   margin-top: 150px;
 }
 
-.homelowermain{
+.homelowermain {
   width: 100%;
   margin-top: 50%;
   position: absolute;
@@ -105,17 +101,16 @@ body {
   background-color: var(--lessDark);
 }
 
-.whatisbell{
+.whatisbell {
   position: absolute;
   margin-top: 15%;
   z-index: 990;
-  font-size:45px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 45px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   left: 50px;
 }
 
-
-.homeex{
+.homeex {
   z-index: 990;
   margin-top: 18.5%;
   position: absolute;
@@ -125,13 +120,12 @@ body {
   font-weight: 500;
 }
 
-
-.learnmore{
+.learnmore {
   z-index: 990;
   position: absolute;
   height: 60px;
   width: 150px;
-  border-style: solid ;
+  border-style: solid;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -143,7 +137,7 @@ body {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.40) 0px 8px 14px;
   transition: .25s ease-in-out;
-  
+
 }
 
 .learnmore:hover {
@@ -153,12 +147,12 @@ body {
   width: 160px;
 }
 
-.startbuild{
+.startbuild {
   z-index: 990;
   position: absolute;
   height: 60px;
   width: 350px;
-  border-style: solid ;
+  border-style: solid;
   border-color: var(--orange);
   display: flex;
   text-align: center;
@@ -174,7 +168,7 @@ body {
   transition: .25s ease-in-out;
 }
 
-.startbuild:hover{
+.startbuild:hover {
   font-size: 28px;
 }
 
@@ -188,11 +182,206 @@ body {
 .box {
   width: 400px;
   height: 400px;
-  background-color: #fff; /* Change this to the color you want */
+  background-color: #fff;
+  /* Change this to the color you want */
   border-radius: 15px;
 }
 
+/* -------------All WorkOuts Card Styling--------------- */
 
+.allCardContainer {
+  margin-top: 10%;
+  width: 40%;
+  display: inline-block; 
+  margin-right: 5%; 
+  margin-bottom: 2%; 
+  margin-left: 5%;
+  border: 2px solid black;
+  border-radius: 15px;
+  vertical-align: top; 
+}
+
+.allCardHeader {
+  background-color: var(--orange);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-size: 40px;
+  color: white;
+
+}
+
+.allCardmainex {
+  margin-left: 15px;
+}
+
+.allTargets {
+  font-size: 25px;
+  font-weight: 750;
+  padding: 10px;
+  border: 2px solid black;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.allComments {
+  font-size: 15px;
+  font-weight: 500;
+  border: 2px solid black;
+  display: inline-block;  
+  padding: 6px;
+}
+
+.exerciseContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items horizontally */
+  gap: 20px;
+}
+
+.exerciseBlock {
+  flex: 0 0 calc(50% - 20px); /* Adjust as needed */
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.allexcname{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+
+}
+
+.allsetsreps{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.setsLabel{
+  font-size: 18px;
+  font-weight: 500;
+
+}
+
+.repsLabel{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.allSets{
+ font-size: 25px;
+ font-weight: 700;
+
+}
+
+
+.excomtitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.excomwriting{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.allbuttcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+
+.allButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 90%;
+  height: 3rem;
+  border-radius: 10px;
+  background-color: var(--orange);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+/* -----------create/my workouts Styling-------------- */
+
+
+.createcontainer {
+  display: flex;
+  height: 100vh; 
+}
+
+.createformmain {
+  width: 45%; 
+  background-color: var(--lessDark);
+  padding: 20px; 
+  height: 100vh; 
+  position: fixed;
+  left: 0; 
+  margin-top: -150px; 
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px; 
+}
+
+.createButtonSubmit {
+  width: 50%; 
+  margin-top: 10px; 
+}
+
+
+
+.yourworkoutsheadcon{
+  display:flex;
+  width:60%;
+  margin-top: -150px;
+  margin-left: 40%;
+  height: 200px;
+  background-color: var(--orange);
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid black;
+}
+
+.yourmytitle{
+  font-size: 65px;
+  font-weight: 700;
+  color: white;
+}
 
 
 

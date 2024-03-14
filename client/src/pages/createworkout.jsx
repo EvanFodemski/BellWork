@@ -38,51 +38,61 @@ const CreateWorkout = ({ onCreateEvent }) => {
 
     return (
         <div className='createcontainer'>
-            <div>
-                <div>
-                    <h2>Create a Workout</h2>
-                    <form onSubmit={handleFormSubmit}>
+            <div className='createformmain'>
+                <h2>Create a Workout</h2>
+                <form onSubmit={handleFormSubmit}>
                     <div className="form-group">
-                            <label htmlFor="name">Name of Your Lift:</label>
-                            <input className="form-control" id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                        </div>
+                        <label htmlFor="name">Name of Your Lift:</label>
+                        <input className="form-control" id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="targets">What Muscle Group Does this Lift Target?</label>
-                            <select className="form-control" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
-                                <option value="">Select an Option</option>
-                                <option value="Upper Body">Upper Body</option>
-                                <option value="Lower Body">Lower Body</option>
-                                <option value="Cardio">Cardio</option>
-                                <option value="Full Body">Full Body Workout</option>
-                                <option value="Other">Other</option>
+                    <div className="form-group">
+                        <label htmlFor="targets">What Muscle Group Does this Lift Target?</label>
+                        <select className="form-control" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
+                            <option value="">Select an Option</option>
+                            <option value="Upper Body">Upper Body</option>
+                            <option value="Lower Body">Lower Body</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Full Body">Full Body Workout</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
 
-                            </select>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="liftComments">Any Comments to Add?</label>
+                        <input className="form-control" id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
+                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="liftComments">Any Comments to Add?</label>
-                            <input className="form-control" id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
-                        </div>
-
-                        <div className="createsubmit">
-                            <button className="createButtonSubmit" type='submit'>Create Your Lift</button>
-                        </div>
-                    </form>
-                </div>
+                    <div className="createsubmit">
+                        <button className="createButtonSubmit" type='submit'>Create Your Lift</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <h1>Your Lifts:</h1>
-                <div>
-                    {data.user.lifts.map((lift) => {
-                        return (
-                            <MyCard lift={lift} key={lift._id} />
-                        )
-                    })}
-                </div>
+            <div className="yourworkoutsheadcon">
+                <h1 className='yourmytitle'>Your Workouts</h1>
             </div>
+
+            {/* <div>
+                <div className='myworkoutscardcon'>
+
+
+                    <div>
+                        {data.user.lifts.map((lift) => {
+                            return (
+                                <MyCard lift={lift} key={lift._id} />
+                            )
+                        })}
+                    </div>
+                </div>
+            </div> */}
+
+
+
         </div>
     )
 }
 
 export default CreateWorkout;
+
+
+
