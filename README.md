@@ -20,16 +20,3 @@ Brief description... If your reading this this app is in progress
 ## Contributors
 
 ## License
-addExcercise: async (_, { liftId, name, sets, reps, comments }, { user }) => {
-            if (user) {
-                const lift = await Lift.findByIdAndUpdate(
-                    liftId,
-                    { $push: { excercises: { name, sets, reps, comments } } },
-                    { new: true }
-                );
-                return lift;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-
-
-        }
