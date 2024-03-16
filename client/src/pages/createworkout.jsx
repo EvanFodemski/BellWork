@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import auth from '../utils/auth';
 import { CREATE_WORKOUT } from '../utils/mutations';
 import { ACTIVE_USER_LIFTS } from '../utils/queries';
+import { DELETE_LIFT } from '../utils/mutations';
 import MyCard from '../components/myCard';
 
 const CreateWorkout = ({ onCreateEvent }) => {
@@ -13,7 +14,11 @@ const CreateWorkout = ({ onCreateEvent }) => {
     const [name, setName] = useState('');
     const [targets, setTargets] = useState('');
     const [liftComments, setLiftComments] = useState('');
+    const [deleteName, setDeleteName] = useState('');
     const [createWorkout] = useMutation(CREATE_WORKOUT);
+    const [deleteLift] = useMutation(DELETE_LIFT, {
+        refetchQueries: [{ query: ACTIVE_USER_LIFTS, variables: { id: userId } }]
+    });
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -29,6 +34,18 @@ const CreateWorkout = ({ onCreateEvent }) => {
         }
     };
 
+    const handleDeleteLift = async () => {
+        try {
+            const { data } = await deleteLift({
+                variables: { name: deleteName }
+            });
+            setDeleteName('');
+
+        } catch (error) {
+            console.error(error, "Error While Deleting your workout.");
+        }
+    }
+
     const { loading, error, data } = useQuery(ACTIVE_USER_LIFTS, {
         variables: { id: userId }
     });
@@ -41,15 +58,13 @@ const CreateWorkout = ({ onCreateEvent }) => {
             <div className='createformmain'>
                 <h2>Create a Workout</h2>
                 <form onSubmit={handleFormSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="name">Name of Your Lift:</label>
-                        <input className="form-control" id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <div className="">
+                        <input className="NameofYourLift" placeholder='Name of Your Lift' id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="targets">What Muscle Group Does this Lift Target?</label>
-                        <select className="form-control" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
-                            <option value="">Select an Option</option>
+                    <div className="optionsOfLift">
+                        <select className="optionsOfLift2" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
+                            <option className="options3" value="">Select an Option</option>
                             <option value="Upper Body">Upper Body</option>
                             <option value="Lower Body">Lower Body</option>
                             <option value="Cardio">Cardio</option>
@@ -58,22 +73,42 @@ const CreateWorkout = ({ onCreateEvent }) => {
                         </select>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="liftComments">Any Comments to Add?</label>
-                        <input className="form-control" id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
+                    <div className="">
+                        <input className="commentsOfYourLift" placeholder='Comments/Description'  id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
                     </div>
 
                     <div className="createsubmit">
                         <button className="createButtonSubmit" type='submit'>Create Your Lift</button>
                     </div>
                 </form>
+                <div className="mainOtherOptions">
+                    <h1 className="otheroptionshead">
+                        Other Options
+                    </h1>
+                    <div className="optionsListmain">
+                    <ul>
+                            <li className='linkToAllWorkoutscon'><Link className='linkToAllWorkouts' to="/allworkouts">Find New Workouts</Link></li>
+                            <h3 className="deleteworkhead">Delete a Workout</h3>
+
+                            <li>
+                                <input className='deleteWorkoutInput'
+                                    type="text"
+                                    placeholder="Enter Workout Name to Delete"
+                                    value={deleteName}
+                                    onChange={(e) => setDeleteName(e.target.value)}
+                                />
+                                <button className='deleteLiftButton' onClick={handleDeleteLift}>Delete</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div className="yourworkoutsheadcon">
                 <h1 className='yourmytitle'>Your Workouts</h1>
             </div>
 
-            {/* <div>
-                <div className='myworkoutscardcon'>
+            <div className='myworkoutscardcon'>
+                <div >
 
 
                     <div>
@@ -84,7 +119,7 @@ const CreateWorkout = ({ onCreateEvent }) => {
                         })}
                     </div>
                 </div>
-            </div> */}
+            </div>
 
 
 

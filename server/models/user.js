@@ -26,6 +26,12 @@ const userSchema = new Schema({
             ref: 'Lift'
         },
     ],
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 });
 
 userSchema.pre('save', async function (next) {

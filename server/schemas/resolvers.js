@@ -14,12 +14,12 @@ const resolvers = {
         excercises: async (_, { liftId }) => {
             const lift = await Lift.findById(liftId);
 
-            if(!lift) {
+            if (!lift) {
                 throw new Error('No lift found with this id!');
             }
             return lift.excercises;
         },
- 
+
 
         me: async (_, __, { user }) => {
             if (user) {
@@ -76,15 +76,15 @@ const resolvers = {
             );
         },
 
-        addLiftToYours: async (_, {userId, liftId}) => {
-            try{
+        addLiftToYours: async (_, { userId, liftId }) => {
+            try {
                 const user = await User.findById(userId);
-                if(!user) {
+                if (!user) {
                     throw new Error('No user with this id!');
                 }
 
                 const lift = await Lift.findById(liftId);
-                if(!lift) {
+                if (!lift) {
                     throw new Error('No lift with this id!');
                 }
 
@@ -96,8 +96,55 @@ const resolvers = {
 
 
             }
-        }
-        
+        },
+
+        deleteWorkout: async (_, { name }) => {
+            try {
+                const lift = await Lift.findOne({ name });
+
+                if (!lift) {
+                    throw new Error('No lift found with this name!');
+                }
+
+                await Lift.findByIdAndDelete(lift._id);
+
+                await User.updateOne(
+                    { lifts: lift._id },
+                    { $pull: { lifts: lift._id } }
+                );
+
+                return lift;
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        },
+
+        addFriend: async (_, { userId, friendName }) => {
+            try {
+                const user = await User.findById(userId);
+                if (!user) {
+                    throw new Error('No user found with this id!');
+                }
+    
+                const friend = await User.findOne({ username: friendName });
+                if (!friend) {
+                    throw new Error('No user found with this username!');
+                }
+    
+                if (user.friends.includes(friend._id)) {
+                    throw new Error('You are already friends with this user!');
+                }
+    
+                user.friends.push(friend);
+                await user.save();
+    
+                return user;
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        },
+
+       
     }
 }
 

@@ -240,12 +240,12 @@ body {
 .exerciseContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the items horizontally */
+  justify-content: center; 
   gap: 20px;
 }
 
 .exerciseBlock {
-  flex: 0 0 calc(50% - 20px); /* Adjust as needed */
+  flex: 0 0 calc(50% - 20px); 
   border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
@@ -349,25 +349,10 @@ li {
   left: 0; 
   margin-top: -150px; 
 }
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 20px; 
-}
-
-.createButtonSubmit {
-  width: 50%; 
-  margin-top: 10px; 
-}
-
-
 
 .yourworkoutsheadcon{
   display:flex;
-  width:60%;
+  width:69%;
   margin-top: -150px;
   margin-left: 40%;
   height: 200px;
@@ -383,6 +368,225 @@ form {
   color: white;
 }
 
+.myworkoutscardcon{
+  margin-top: 10%;
+  margin-left: -50%;
+}
+
+
+/* --------------Your Workouts Card--------------- */
+
+.mycardconn{
+  width: 250%;
+  border: 2px solid black;
+}
+
+.mycardheadercon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  height: 100px;
+  font-size: 45px;
+  color: white;
+
+}
+
+.myworktargets{
+  font-size: 25px;
+  font-weight: 750;
+  border: 2px solid black;
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 50px;
+}
+
+
+.allworkcomm{
+  font-size: 15px;
+  font-weight: 500;
+  border: 2px solid black;
+  display: inline-block;  
+  padding: 6px;
+  margin: 10px;
+}
+
+.myworkexctitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+
+.exerciseBlock2{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin: 10px;
+}
+
+.myButton{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin: 10px;
+  width: 97%;
+  height: 200px;
+  background-color: white;
+}
+
+/* -----------add Exercise form------------- */
+
+
+.add-exercise-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.add-exercise-form input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 40%;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+/* ---------Create Lift Main Form---------------- */
+
+
+.NameofYourLift{
+  width: 60%;
+  background-color: var(--lessDark);
+  border: 2px solid white;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.NameofYourLift::placeholder{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+
+.optionsOfLift2{
+  width: 60%;
+  background-color: var(--lessDark);
+  border: 2px solid white;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.optionsOfLift2::placeholder{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.optionsOfLift2 {
+  color: white; 
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.optionsOfLift2 option {
+  color: white; 
+  font-size: 16px; 
+}
+
+.commentsOfYourLift{
+  width: 60%;
+  background-color: var(--lessDark);
+  border: 2px solid white;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.commentsOfYourLift::placeholder{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.createButtonSubmit{
+  width: 60%;
+  height: 40px;
+  background-color: var(--orange);
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.linkToAllWorkouts {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  height: 100%; 
+  padding-left: 5px;
+}
+
+.linkToAllWorkoutscon{
+  width: 350px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.deleteWorkoutInput{
+  width: 350px;
+  background-color: var(--lessDark);
+  border: 2px solid white;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.deleteWorkoutInput::placeholder{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+.deleteLiftButton{
+  width: 150px;
+  height: 40px;
+  background-color: var(--orange);
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer; 
+  margin-left: 20px;
+}
 
 
 

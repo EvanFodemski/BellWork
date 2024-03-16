@@ -47,3 +47,30 @@ mutation AddLiftToYours($userId: ID!, $liftId: ID!) {
   }
 }
 `;
+
+export const ADD_EXERCISE=gql`
+mutation AddExercise($liftId: ID!, $name: String!, $sets: Int!, $reps: Int!, $comments: String) {
+  addExercise(liftId: $liftId, name: $name, sets: $sets, reps: $reps, comments: $comments) {
+    _id
+    createdAt
+    liftComments
+    name
+    excercises {
+      _id
+      comments
+      name
+      reps
+      sets
+    }
+    targets
+  }
+}
+`;
+
+export const DELETE_LIFT=gql`
+mutation DeleteWorkout($name: String!) {
+  deleteWorkout(name: $name) {
+    _id
+  }
+}
+`;

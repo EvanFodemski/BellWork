@@ -52,3 +52,67 @@ query Excercises($liftId: ID!) {
   }
 }
 `;
+
+export const GET_ALL_USERS = gql`
+query Users {
+  users {
+    username
+    _id
+    email
+    lifts {
+      _id
+      excercises {
+        _id
+        comments
+        name
+        reps
+        sets
+      }
+      liftComments
+      name
+      targets
+    }
+  }
+}
+`;
+
+export const ADD_FRIEND = gql`
+mutation AddFriend($userId: ID!, $friendName: String!) {
+  addFriend(userId: $userId, friendName: $friendName) {
+    username
+    _id
+    email
+    lifts {
+      _id
+      excercises {
+        _id
+        comments
+        name
+        reps
+        sets
+      }
+      liftComments
+      name
+      targets
+    }
+    friends {
+      _id
+      email
+      lifts {
+        _id
+        excercises {
+          _id
+          comments
+          name
+          reps
+          sets
+        }
+        liftComments
+        name
+        targets
+      }
+      username
+    }
+  }
+}
+`;

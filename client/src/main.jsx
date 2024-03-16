@@ -8,6 +8,7 @@ import Login from './pages/login.jsx'
 import Signup from './pages/signup.jsx'
 import CreateWorkout from './pages/createworkout.jsx'
 import AllWorkouts from './pages/allWorkouts.jsx'
+import ProfilePage from './pages/profile.jsx'
 import './index.css'
 
 
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: 'allworkouts',
         element: <AllWorkouts />
+      },
+      {
+        path: 'profilepage',
+        element: <ProfilePage />
+        
       }
     ]
   }

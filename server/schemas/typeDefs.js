@@ -6,6 +6,7 @@ const typeDefs = gql`
         username: String!
         email: String!
         lifts: [Lift]
+        friends: [User]
     }
 
     type Lift {
@@ -45,8 +46,9 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         createWorkout(name: String!, targets: String!, liftComments: String, userId: ID!): Lift
         addExercise(liftId: ID!, name: String!, sets: Int!, reps: Int!, comments: String): Lift
-        removeLift(liftId: ID!): Lift
+        deleteWorkout(name: String!): Lift
         addLiftToYours(userId: ID!, liftId: ID!): User
+        addFriend(userId: ID!, friendName: String!): User
     }
 `;
 
