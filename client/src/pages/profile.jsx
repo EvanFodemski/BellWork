@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import auth from '../utils/auth';
+import { useMutation, gql } from '@apollo/client';
 import { GET_ALL_USERS } from '../utils/queries';
+import { ADD_FRIEND } from '../utils/mutations';
 import { handleError } from '@apollo/client/link/http/parseAndCheckHttpResponse';
 
 const ProfilePage = () => {
     const { loading, error, data } = useQuery(GET_ALL_USERS);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedUser, setSelectedUser] = useState(null);
+
+    const [addFriend] = useMutation(ADD_FRIEND);
+
 
 
     if (loading) {
@@ -27,13 +29,25 @@ const ProfilePage = () => {
       setSelectedUser(user);
     }
 
+    const handleAddFriend = async (user) => {
+      try {
+        await addFriend({
+          variables: { userId: selectedUser._id, friendName: selectedUser.username }
+        });
+        
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
     const closeClick = () => {
       setSelectedUser(null);
     }
 
     const filteredUsers = data.users.filter((user) =>
         user.username.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    )
+    .slice(0,5);
 
     return (
         <div className='profilecontainer'>
@@ -51,7 +65,7 @@ const ProfilePage = () => {
                         <h1 onClick={() => handleClick(user)}>{user.username}</h1>
                         {selectedUser === user && (
                             <div>
-                                <button onClick={handleError}>Add Friend</button>
+                                <button onClick={handleAddFriend}>Add Friend</button>
                                 <button onClick={handleError}>View Profile</button>
                             </div>
                         )}

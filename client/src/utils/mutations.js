@@ -74,3 +74,11 @@ mutation DeleteWorkout($name: String!) {
   }
 }
 `;
+
+export const ADD_FRIEND = gql`
+mutation AddFriend($userId: ID!, $friendName: String!) {
+  addFriend(userId: $userId, friendName: $friendName) {
+    _id
+  }
+}
+`;
