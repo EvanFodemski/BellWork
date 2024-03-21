@@ -4,11 +4,27 @@ import { useMutation, gql } from '@apollo/client';
 import { GET_ALL_USERS } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import { handleError } from '@apollo/client/link/http/parseAndCheckHttpResponse';
+import auth from '../utils/auth';
+
+
+const Modal = ({ isOpen, onClose }) => {
+    return isOpen ? (
+      <div className="modal">
+        <div className="modal-content">
+          <h2>Friend Added!</h2>
+          <button onClick={onClose}>Close</button>
+        </div>
+      </div>
+    ) : null;
+  };
 
 const ProfilePage = () => {
     const { loading, error, data } = useQuery(GET_ALL_USERS);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedUser, setSelectedUser] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const userId = auth.loggedIn() ? auth.getProfile().data._id : "";
+    
 
     const [addFriend] = useMutation(ADD_FRIEND);
 
@@ -21,37 +37,41 @@ const ProfilePage = () => {
         return <h1>Error</h1>;
     }
 
+    
+
     const handleSearchInputChange = (event) => {
         setSearchQuery(event.target.value);
     };
 
     const handleClick = (user) => {
-      setSelectedUser(user);
+        setSelectedUser(user);
     }
 
-    const handleAddFriend = async (user) => {
-      try {
-        await addFriend({
-          variables: { userId: selectedUser._id, friendName: selectedUser.username }
-        });
-        
-      } catch (e) {
-        console.error(e);
-      }
+    const handleAddFriend = async () => {
+        try {
+            await addFriend({
+                variables: { userId: userId, friendName: selectedUser.username }
+            });
+            setShowModal(true);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     const closeClick = () => {
-      setSelectedUser(null);
+        setSelectedUser(null);
     }
 
     const filteredUsers = data.users.filter((user) =>
         user.username.toLowerCase().includes(searchQuery.toLowerCase())
     )
-    .slice(0,5);
+        .slice(0, 5);
+
+
 
     return (
         <div className='profilecontainer'>
-           
+
             <h1>All Users</h1>
             <input
                 type="text"
