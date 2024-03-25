@@ -7,6 +7,7 @@ const typeDefs = gql`
         email: String!
         lifts: [Lift]
         friends: [User]
+        description: String
     }
 
     type Lift {
@@ -49,6 +50,7 @@ const typeDefs = gql`
         deleteWorkout(name: String!): Lift
         addLiftToYours(userId: ID!, liftId: ID!): User
         addFriend(userId: ID!, friendName: String!): User
+        addDescription(userId: ID!, description: String): User
     }
 `;
 

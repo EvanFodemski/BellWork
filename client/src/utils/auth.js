@@ -1,6 +1,4 @@
-// import decode from 'jwt-decode';
 import {jwtDecode as decode} from 'jwt-decode';
-// const {decode} = require('jwt-decode');
 class AuthService {
   getProfile() {
     return decode(this.getToken());

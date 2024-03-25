@@ -82,3 +82,13 @@ mutation AddFriend($userId: ID!, $friendName: String!) {
   }
 }
 `;
+
+
+export const ADD_DESCRIPTION =gql`
+mutation Mutation($userId: ID!, $description: String) {
+  addDescription(userId: $userId, description: $description) {
+    description
+    _id
+  }
+}
+`;

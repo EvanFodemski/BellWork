@@ -57,10 +57,15 @@ export const GET_ALL_USERS = gql`
 query Users {
   users {
     username
+    description
     _id
     email
     lifts {
       _id
+      createdAt
+      liftComments
+      name
+      targets
       excercises {
         _id
         comments
@@ -68,9 +73,9 @@ query Users {
         reps
         sets
       }
-      liftComments
-      name
-      targets
+    }
+    friends {
+      _id
     }
   }
 }
@@ -112,6 +117,38 @@ mutation AddFriend($userId: ID!, $friendName: String!) {
         targets
       }
       username
+    }
+  }
+}
+`;
+
+export const GET_ME = gql`
+query Query {
+  me {
+    _id
+    description
+    email
+    friends {
+      _id
+      description
+      email
+      friends {
+        _id
+        description
+      }
+      lifts {
+        _id
+        createdAt
+        excercises {
+          _id
+          comments
+          name
+          reps
+          sets
+        }
+        name
+        targets
+      }
     }
   }
 }

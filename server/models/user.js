@@ -31,7 +31,13 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
-    ]
+    ],
+    description: 
+        {
+            type: String,
+            maxlength: 280
+        }
+    
 });
 
 userSchema.pre('save', async function (next) {

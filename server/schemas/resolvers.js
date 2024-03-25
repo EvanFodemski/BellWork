@@ -125,26 +125,45 @@ const resolvers = {
                 if (!user) {
                     throw new Error('No user found with this id!');
                 }
-    
+
                 const friend = await User.findOne({ username: friendName });
                 if (!friend) {
                     throw new Error('No user found with this username!');
                 }
-    
+
                 if (user.friends.includes(friend._id)) {
                     throw new Error('You are already friends with this user!');
                 }
-    
+
                 user.friends.push(friend);
                 await user.save();
-    
+
                 return user;
             } catch (error) {
                 throw new Error(error.message);
             }
         },
+        addDescription: async (_, { description, userId }) => {
+            try {
+                
+                const updatedUser = await User.findByIdAndUpdate(
+                    userId,
+                    { description: description }, 
+                    { new: true, runValidators: true } 
+                );
+        
+                if (!updatedUser) {
+                    throw new Error("User not found.");
+                }
+        
+                return updatedUser; 
+            } catch (error) {
+                throw new Error("Failed to update description: " + error.message);
+            }
+        }
 
-       
+
+
     }
 }
 
