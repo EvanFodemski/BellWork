@@ -595,47 +595,130 @@ li {
 
 /* ---------------Profile Page Styling----------------- */
 
-.profileCard {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 400px;
-}
 
-.profileCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
 
 .profile-image {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+  margin-left: 50px;
   object-fit: cover;
+  border: 2px solid black;
 }
 
 
 
-.profuserinfo {
-  margin-top: 20px;
+.img-upload-container {
+  position: relative;
+  
 }
 
-.profuserinfo p {
-  margin-bottom: 10px;
+.custom-file-upload {
+  cursor: pointer;
 }
 
-#photo-upload {
+.hidden {
   display: none;
 }
 
-.profplus {
- margin-left: 100px;
- cursor: pointer;
+.img-wrap {
+  position: relative;
+  display: inline-block;
 }
+
+
+.change-photo-button {
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  display: none;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--lessDark);
+
+}
+
+.changehovertext{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  width: 150px;
+  height: 60px;
+  position: absolute;
+  top: 100%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: var(--lessDark);
+  border-radius: 8%;
+
+}
+
+
+.img-wrap:hover .change-photo-button {
+  display: block;
+}
+
+.img-wrap:hover .changehovertext {
+  display: flex;
+}
+
+.userusername {
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: 20%;
+  margin-top: -200px;
+}
+
+.useremail{
+  font-size: 25px;
+  margin-left: 20%;
+}
+
+.proflinething{
+  margin-left: 20%;
+  height: 2px;
+  width: 350px;
+  background-color: black;
+
+}
+
+
+.userfriends{
+  font-size: 25px;
+  margin-left: 20%;
+  margin-top: 20px;
+}
+
+.userlifts{
+  font-size: 25px;
+  margin-left: 28%;
+  margin-top: -50px;
+}
+
+.aboutheadincard{
+  margin-left: 7%;
+  margin-top: 5%;
+}
+
+.userdescrip{
+  font-size: 20px;
+  margin-left: 7%;
+  margin-top: 2%;
+}
+
+
+
+
+
+
 
 
 
