@@ -17,6 +17,14 @@ const liftSchema = new Schema({
         required: true,
         trim: true,
     },
+    likes: {
+        type: Number,
+        required: false,
+    },
+    dislikes: {
+        type: Number,
+        required: false,
+    },
     targets: {
         type: String,
         enum: ['Upper Body', 'Lower Body', 'Cardio', 'Full Body', 'Other'],
