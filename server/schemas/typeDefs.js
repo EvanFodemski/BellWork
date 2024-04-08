@@ -13,6 +13,8 @@ const typeDefs = gql`
     type Lift {
         _id: ID
         name: String!
+        likes: Int
+        dislikes: Int
         createdBy: String
         targets: String!
         liftComments: String
