@@ -80,7 +80,7 @@ const ProfilePage = () => {
 
 
 
-            {/* <div className="allUsersMainCon">
+            <div className="allUsersMainCon">
             <h1>All Users</h1>
             <input
                 type="text"
@@ -106,7 +106,7 @@ const ProfilePage = () => {
                     <button onClick={closeClick}>Close</button>
                 </div>
             )}
-            </div> */}
+            </div>
 
 
             <div className="loggedprocon">

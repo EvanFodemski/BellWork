@@ -669,6 +669,9 @@ li {
 .img-wrap:hover .changehovertext {
   display: flex;
 }
+.profmaincont{
+  margin-top: -20%;
+}
 
 .userusername {
   font-size: 40px;
@@ -703,15 +706,47 @@ li {
   margin-top: -50px;
 }
 
-.aboutheadincard{
-  margin-left: 7%;
+
+.userdescrip{
+  font-size: 22px;
+  margin-left: 5%; /* Adjust margin as needed */
+  width: 60%; /* Set a width for the paragraph */
+  text-align: justify; /* Justify text for a paragraph-like appearance */
+  line-height: 1.5; 
+  
+}
+
+.editbuttonpro{
+  border: none;
+  background-color: white;
+  font-size: 50px;
+  margin-left: 5%;
   margin-top: 5%;
 }
 
-.userdescrip{
+
+.protextarea{
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 40px;
+  width: 300px;
+  border: none;
+  border-bottom: 3px solid black;  
+}
+
+.profsavebutton{
+  width: 90px;
+  background-color: var(--orange);
   font-size: 20px;
-  margin-left: 7%;
-  margin-top: 2%;
+  margin-left: 5%;
+}
+
+.charrempro{
+  margin-left: 5%;
+}
+
+.allUsersMainCon{
+  margin-left: 50%;
 }
 
 
