@@ -332,6 +332,36 @@ li {
   margin-left: 15px;
 }
 
+
+.likedislikecon{
+  display: flex;
+  justify-content: center;
+  background-color: white;  
+}
+
+.blanklike{
+  padding: 25px;
+  cursor: pointer;
+
+}
+
+.blankdislike{
+  padding: 25px;
+  cursor: pointer;
+
+}
+
+.liftlikenum{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.liftdislikenum{
+  font-size: 20px;
+  font-weight: 700;
+
+}
+
 /* -----------create/my workouts Styling-------------- */
 
 

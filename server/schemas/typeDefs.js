@@ -49,6 +49,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         createWorkout(name: String!, targets: String!, liftComments: String, userId: ID!): Lift
         addExercise(liftId: ID!, name: String!, sets: Int!, reps: Int!, comments: String): Lift
+        addLike(liftId: ID!): Lift
+        addDisLike(liftId: ID!): Lift
         deleteWorkout(name: String!): Lift
         addLiftToYours(userId: ID!, liftId: ID!): User
         addFriend(userId: ID!, friendName: String!): User

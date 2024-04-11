@@ -92,3 +92,19 @@ mutation Mutation($userId: ID!, $description: String) {
   }
 }
 `;
+
+export const ADD_LIKE = gql `
+mutation AddLike($liftId: ID!) {
+  addLike(liftId: $liftId) {
+    _id
+  }
+}
+`;
+
+export const ADD_DISLIKE = gql `
+mutation AddDisLike($liftId: ID!) {
+  addDisLike(liftId: $liftId) {
+    _id
+  }
+}
+`

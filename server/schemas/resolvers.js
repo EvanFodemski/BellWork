@@ -160,7 +160,43 @@ const resolvers = {
             } catch (error) {
                 throw new Error("Failed to update description: " + error.message);
             }
-        }
+        },
+        addLike: async (_, { liftId }) => {
+            try {
+                const lift = await Lift.findByIdAndUpdate(
+                    liftId,
+                    { $inc: { likes: 1 } }, // Increment likes by 1
+                    { new: true }
+                );
+    
+                if (!lift) {
+                    throw new Error('No lift found with this id!');
+                }
+    
+                return lift;
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        },
+        addDisLike: async (_, { liftId }) => {
+            try {
+                const lift = await Lift.findByIdAndUpdate(
+                    liftId,
+                    { $inc: { dislikes: 1 } }, // Increment dislikes by 1
+                    { new: true }
+                );
+    
+                if (!lift) {
+                    throw new Error('No lift found with this id!');
+                }
+    
+                return lift;
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        },
+    
+
 
 
 

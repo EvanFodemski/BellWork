@@ -16,6 +16,8 @@ query Lifts {
     liftComments
     name
     targets
+    dislikes
+    likes
   }
 }
 `;
