@@ -106,9 +106,32 @@ const ProfilePage = () => {
                             </li>
                         ))}
                     </ul>
+            <div className="allUsersMainCon">
+            <h1>All Users</h1>
+            <input
+                type="text"
+                placeholder="Search by username..."
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+            />
+            <ul>
+                {filteredUsers.map((user) => (
+                    <li key={user._id}>
+                        <h1 onClick={() => handleClick(user)}>{user.username}</h1>
+                        {selectedUser === user && (
+                            <div>
+                                <button onClick={handleAddFriend}>Add Friend</button>
+                                <button onClick={handleError}>View Profile</button>
+                            </div>
+                        )}
+                    </li>
+                ))}
+            </ul>
+            {selectedUser && (
+                <div>
+                    <button onClick={closeClick}>Close</button>
                 </div>
-
-
+            )}
             </div>
 
 
@@ -117,8 +140,11 @@ const ProfilePage = () => {
             </div>
 
         </div>
-    );
-};
+    </div>
+    </div>
+        )};
+    
+
 
 
 
