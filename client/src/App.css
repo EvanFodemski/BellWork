@@ -624,7 +624,7 @@ li {
 /* ---------------Profile Page Styling----------------- */
 
 .profmaincont{
-  margin-top: 8%;
+  margin-top: 20%;
 
 }
 
@@ -655,7 +655,7 @@ li {
 }
 
 
-.change-photo-button {
+/* .change-photo-button {
   align-items: center;
   justify-content: center;
   width: 70px;
@@ -687,7 +687,7 @@ li {
   background-color: var(--lessDark);
   border-radius: 8%;
 
-}
+} */
 
 
 .img-wrap:hover .change-photo-button {
