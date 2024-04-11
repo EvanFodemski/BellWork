@@ -77,6 +77,7 @@ const ProfilePage = () => {
 
 
             <div className="allUsersMainCon">
+                <div className="innerallcon">
                 <div className="topyoumay">
                     <h1>People you may know</h1>
 
@@ -106,32 +107,10 @@ const ProfilePage = () => {
                             </li>
                         ))}
                     </ul>
-            <div className="allUsersMainCon">
-            <h1>All Users</h1>
-            <input
-                type="text"
-                placeholder="Search by username..."
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-            />
-            <ul>
-                {filteredUsers.map((user) => (
-                    <li key={user._id}>
-                        <h1 onClick={() => handleClick(user)}>{user.username}</h1>
-                        {selectedUser === user && (
-                            <div>
-                                <button onClick={handleAddFriend}>Add Friend</button>
-                                <button onClick={handleError}>View Profile</button>
-                            </div>
-                        )}
-                    </li>
-                ))}
-            </ul>
-            {selectedUser && (
-                <div>
-                    <button onClick={closeClick}>Close</button>
+
                 </div>
-            )}
+                </div>
+                
             </div>
 
 
@@ -139,11 +118,12 @@ const ProfilePage = () => {
                 <ProfileCard user={data.users.find(user => user._id === userId)} />
             </div>
 
+
         </div>
-    </div>
-    </div>
-        )};
-    
+
+    )
+};
+
 
 
 

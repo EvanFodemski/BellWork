@@ -618,13 +618,14 @@ li {
   margin-left: 20px;
 }
 
-.profilecontainer {
- margin-top: 10%;
-}
+
 
 
 /* ---------------Profile Page Styling----------------- */
+.allUsersMainCon{
+  margin-top: 10%;
 
+}
 
 
 .profile-image {
@@ -700,7 +701,7 @@ li {
   display: flex;
 }
 .profmaincont{
-  margin-top: -20%;
+  margin-top: -35%;
 }
 
 .userusername {
@@ -739,9 +740,9 @@ li {
 
 .userdescrip{
   font-size: 22px;
-  margin-left: 5%; /* Adjust margin as needed */
-  width: 60%; /* Set a width for the paragraph */
-  text-align: justify; /* Justify text for a paragraph-like appearance */
+  margin-left: 5%; 
+  width: 60%; 
+  text-align: justify; 
   line-height: 1.5; 
   
 }
@@ -813,6 +814,8 @@ li {
   width: 400px;
   padding: 10px;
 }
+
+
 
 
 
