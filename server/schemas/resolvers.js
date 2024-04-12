@@ -138,6 +138,15 @@ const resolvers = {
                 user.friends.push(friend);
                 await user.save();
 
+                const notification = {
+                    sender: user,
+                    message: `${user.username} has added you as a friend!`,
+                    timestamp: new Date(),
+                };
+                
+                friend.notifications.push(notification);
+                await friend.save();
+
                 return user;
             } catch (error) {
                 throw new Error(error.message);

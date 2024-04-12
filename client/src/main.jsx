@@ -9,7 +9,7 @@ import Signup from './pages/signup.jsx'
 import CreateWorkout from './pages/createworkout.jsx'
 import AllWorkouts from './pages/allWorkouts.jsx'
 import ProfilePage from './pages/profile.jsx'
-import NotificationsPage from './pages/notifications.jsx'
+import NotificationsPage from './components/notifications.jsx'
 import './index.css'
 
 

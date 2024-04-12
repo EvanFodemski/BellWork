@@ -4,7 +4,7 @@ import auth from '../utils/auth';
 import Home from '../pages/homePage';
 import Login from '../pages/login';
 import Signup from '../pages/signup';
-
+import NotificationsPage from '../components/notifications';
 // import Nav from './Navbar';
 // import '../index.css'
 
@@ -46,6 +46,12 @@ function Header() {
         </g>
     </svg>
 
+    const notifications = <svg fill="#000000" width="30px" height="30px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>notification-solid</title>
+        <path class="clr-i-solid clr-i-solid-path-1" d="M32.85,28.13l-.34-.3A14.37,14.37,0,0,1,30,24.9a12.63,12.63,0,0,1-1.35-4.81V15.15A10.81,10.81,0,0,0,19.21,4.4V3.11a1.33,1.33,0,1,0-2.67,0V4.42A10.81,10.81,0,0,0,7.21,15.15v4.94A12.63,12.63,0,0,1,5.86,24.9a14.4,14.4,0,0,1-2.47,2.93l-.34.3v2.82H32.85Z"></path><path class="clr-i-solid clr-i-solid-path-2" d="M15.32,32a2.65,2.65,0,0,0,5.25,0Z"></path>
+        <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+    </svg>
+
     return (
         <div className="headermainContainer">
             <div className="headerverytop">
@@ -63,6 +69,7 @@ function Header() {
                             <NavLink to="/createworkout" activeclassname="active">My Workouts</NavLink>
                             <NavLink to="/allworkouts" activeclassname="active">All Workouts</NavLink>
                             <NavLink to="/" onClick={handleLogout} className="logout">{logOut}</NavLink>
+                            <NavLink to="/notifications" activeclassname="active">{notifications}</NavLink>
                             <NavLink to="/profilepage" activeclassname="active">{profile}</NavLink>
                         </>
                     ) : (

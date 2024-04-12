@@ -1,5 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, mongoose } = require('mongoose');
 const bcrypt = require('bcrypt');
+
+
+const NotificationSchema = new mongoose.Schema({
+    sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    message: String,
+    timestamp: { type: Date, default: Date.now },
+    status: { type: String, default: 'unread' } // or use boolean: read/unread
+});
 
 
 const userSchema = new Schema({
@@ -32,12 +40,13 @@ const userSchema = new Schema({
             ref: 'User'
         }
     ],
-    description: 
-        {
-            type: String,
-            maxlength: 280
-        }
-    
+    description:
+    {
+        type: String,
+        maxlength: 280
+    },
+    notifications: [NotificationSchema]
+
 });
 
 userSchema.pre('save', async function (next) {
@@ -48,10 +57,10 @@ userSchema.pre('save', async function (next) {
 
     next();
 });
-    
-    userSchema.methods.isCorrectPassword = async function (password) {
-        return bcrypt.compare(password, this.password);
-    };
+
+userSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
 
 const User = model('User', userSchema);
 

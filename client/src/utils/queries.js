@@ -155,3 +155,16 @@ query Query {
   }
 }
 `;
+
+export const GET_NOTIFICATIONS = gql `
+query Notifications($id: ID!) {
+  user(_id: $id) {
+    notifications {
+      _id
+      message
+      timestamp
+      status
+    }
+  }
+}
+`;

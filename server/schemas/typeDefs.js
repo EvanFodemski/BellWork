@@ -8,6 +8,7 @@ const typeDefs = gql`
         lifts: [Lift]
         friends: [User]
         description: String
+        notifications: [Notification] 
     }
 
     type Lift {
@@ -30,6 +31,14 @@ const typeDefs = gql`
         comments: String
     }
 
+    type Notification {
+        _id: ID
+        sender: User
+        message: String
+        timestamp: String
+        status: String
+    }
+
     type Auth {
         token: ID!
         user: User
@@ -42,6 +51,8 @@ const typeDefs = gql`
         lift(_id: ID!): Lift
         excercises(liftId: ID!): [Excercise]
         me: User
+        notifications: [Notification] 
+
     }
 
     type Mutation {

@@ -630,31 +630,6 @@ li {
 
 
 
-.profile-image {
-
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  margin-left: 50px;
-  object-fit: cover;
-  border: 2px solid black;
-}
-
-
-.custom-file-upload {
-  cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
-
-.img-wrap {
-  position: relative;
-  display: inline-block;
-}
-
-
 /* .change-photo-button {
   align-items: center;
   justify-content: center;
@@ -702,19 +677,19 @@ li {
 .userusername {
   font-size: 40px;
   font-weight: 700;
-  margin-left: 20%;
+  margin-left: 5%;
   margin-top: -200px;
 }
 
 .useremail{
   font-size: 25px;
-  margin-left: 20%;
+  margin-left: 5%;
 }
 
 .proflinething{
-  margin-left: 20%;
+  margin-left: 5%;
   height: 2px;
-  width: 350px;
+  width: 330px;
   background-color: black;
 
 }
@@ -722,13 +697,13 @@ li {
 
 .userfriends{
   font-size: 25px;
-  margin-left: 20%;
+  margin-left: 5%;
   margin-top: 20px;
 }
 
 .userlifts{
   font-size: 25px;
-  margin-left: 28%;
+  margin-left: 15%;
   margin-top: -50px;
 }
 
@@ -820,3 +795,69 @@ li {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* -------------Notification Styling-------------------- */
+
+.notistop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  height: 80px;
+  font-size: 45px;
+  color: white;
+  margin-top: 130px;
+}
+
+.notisbox{
+  margin-left: 5%;
+  margin-top: 30px;
+  width: 90%;
+  height: 600px;
+  border: 2px solid black;  
+}
+
+.noNotis{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 3%;
+}
+
+.notification{
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  height: 100px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+
+.notimsg{
+  margin-left: 15px;
+}
+
+.notisAddFriend{
+  margin-left: 50%;
+  margin-right: 10px;
+  font-weight: 500;
+  background-color: white;
+}
+
+.notisViewProfile{
+  font-weight: 500;
+  background-color: white;
+}
+
+.closeNoti{
+  display: flex;
+  background-color: lightgrey;
+  border: none;
+  margin-inline-start: 70px;
+}
