@@ -67,6 +67,8 @@ function Header() {
                             <NavLink to="/createworkout" activeclassname="active">My Workouts</NavLink>
 
                             <NavLink to="/allworkouts" activeclassname="active">All Workouts</NavLink>
+                            <NavLink to="/planner" activeclassname="active">Training Schedule</NavLink>
+
 
                             <NavLink to="/" onClick={handleLogout} className="logout">{logOut}</NavLink>
 

@@ -10,6 +10,7 @@ import CreateWorkout from './pages/createworkout.jsx'
 import AllWorkouts from './pages/allWorkouts.jsx'
 import ProfilePage from './pages/profile.jsx'
 import NotificationsPage from './components/notifications.jsx'
+import Planner from './pages/planner.jsx'
 import './index.css'
 
 
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: 'notifications',
         element: <NotificationsPage/>
+      },
+      {
+        path: 'planner',
+        element: <Planner />
+
       }
 
     ]

@@ -882,3 +882,123 @@ li {
   font-size: 15px;
 
 }
+
+
+/* ------------Trainging Schedule page----------- */
+
+.plannerhead{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  height: 80px;
+  font-size: 45px;
+  font-weight: 700;
+  color: white;
+  margin-top: 130px;
+}
+
+.headerlower{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--lessDark);
+  height: 50px;
+  font-size: 25px;
+  color: white;
+}
+
+.getplan{
+  margin-left: 5%;
+  margin-top: 5%;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.wouldplan{
+  margin-left: 5%;
+  margin-top: 2%;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.weekplan{
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: var(--orange);
+  color: white;
+  font-weight: 600;
+}
+
+.monthplan{
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: var(--orange);
+  color: white;
+  font-weight: 600;
+}
+
+
+.planOr{
+
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.customdaysinput{
+  width: 280px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 7px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.customplanbutton {
+  margin-left: 15px;
+  border-radius: 7px;
+  background-color: var(--orange);
+  color: white;
+  font-weight: 600;
+  padding: 4px;
+
+}
+
+.plannerbox {
+  width: calc((100% - 60px) / 7);
+  height: 250px;
+  border: 2px solid black;
+  box-sizing: border-box; 
+}
+
+
+.scheduleCon {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  max-width: 90%;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  gap: 10px; 
+}
+
+.boxNumber{
+  padding: 5px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+
+
+.plannerplusbutton{
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9%;
+}
