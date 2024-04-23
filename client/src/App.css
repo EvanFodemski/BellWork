@@ -371,36 +371,30 @@ li {
 }
 
 .createformmain {
-  width: 45%; 
-  background-color: var(--lessDark);
+  width: 30%; 
   padding: 20px; 
-  height: 100vh; 
+  height: 80%; 
   position: fixed;
   left: 0; 
-  margin-top: -150px; 
-}
+  margin-top: -115px; 
+  margin-left: 15px;
+  border-radius: 3%;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
 
-.yourworkoutsheadcon{
-  display:flex;
-  width:69%;
-  margin-top: -150px;
-  margin-left: 40%;
-  height: 200px;
-  background-color: var(--orange);
-  justify-content: center;
-  align-items: center;
-  border-bottom: 4px solid black;
-}
 
-.yourmytitle{
+.yourworkoutshead{
   font-size: 65px;
-  font-weight: 700;
-  color: white;
+  margin-left: 50%;
+  margin-top: -57%;
 }
 
-.myworkoutscardcon{
-  margin-top: 10%;
-  margin-left: -50%;
+.yourworkline{
+  margin-left: 45%;
+  height: 3px;
+  border-radius: 30%;
+  margin-top: 20px;
+  width: 630px;
+  background-color: black;
 }
 
 
@@ -497,11 +491,13 @@ li {
 .NameofYourLift{
   width: 60%;
   background-color: var(--lessDark);
-  border: 2px solid white;
+  border: none;
+  border-bottom: 2px solid white;
   height: 40px;
-  border-radius: 10px;
   margin-bottom: 20px;
 }
+
+
 .NameofYourLift::placeholder{
   color: white;
   font-size: 20px;

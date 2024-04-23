@@ -33,6 +33,13 @@ const ProfilePage = () => {
         <path d="M17.6305 20H5.94623C5.54449 20 5.31716 19.559 5.56788 19.2451C6.68379 17.8479 9.29072 15 12 15C14.7275 15 17.0627 17.8864 18.0272 19.2731C18.2474 19.5897 18.0161 20 17.6305 20Z" fill="#000000" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 
+    const searchIcon =
+        <svg width="20px" height="20px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5 14.5L10.5 10.5M6.5 12.5C3.18629 12.5 0.5 9.81371 0.5 6.5C0.5 3.18629 3.18629 0.5 6.5 0.5C9.81371 0.5 12.5 3.18629 12.5 6.5C12.5 9.81371 9.81371 12.5 6.5 12.5Z" stroke="#000000"/>
+</svg>
+
+        
+    
     const handleAddFriend = async (selectedUser) => {
         try {
             await addFriend({
@@ -85,7 +92,7 @@ const ProfilePage = () => {
                     <div className="friendsboxsearch">
                         <input
                             type="text"
-                            placeholder="Search by username..."
+                            placeholder= "Search for a friend..."
                             value={searchQuery}
                             onChange={handleSearchInputChange}
                         />

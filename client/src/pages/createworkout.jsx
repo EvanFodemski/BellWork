@@ -54,76 +54,93 @@ const CreateWorkout = ({ onCreateEvent }) => {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div className='createcontainer'>
-            <div className='createformmain'>
-                <h2>Create a Workout</h2>
-                <form onSubmit={handleFormSubmit}>
-                    <div className="">
-                        <input className="NameofYourLift" placeholder='Name of Your Lift' id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <div className="wholecreatecontainer">
+
+            <div className='createcontainer'>
+                <div className='createformmain'>
+                    <h2>Create a Workout</h2>
+                    <form onSubmit={handleFormSubmit}>
+                        <div className="">
+                            <input className="NameofYourLift" placeholder='Name of Your Lift' id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                        </div>
+
+                        <div className="optionsOfLift">
+                            <select className="optionsOfLift2" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
+                                <option className="options3" value="">Select an Option</option>
+                                <option value="Upper Body">Upper Body</option>
+                                <option value="Lower Body">Lower Body</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Full Body">Full Body Workout</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className="">
+                            <input className="commentsOfYourLift" placeholder='Comments/Description' id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
+                        </div>
+
+                        <div className="createsubmit">
+                            <button className="createButtonSubmit" type='submit'>Create Your Lift</button>
+                        </div>
+                    </form>
+                    <div className="mainOtherOptions">
+                        <h1 className="otheroptionshead">
+                            Other Options
+                        </h1>
+                        <div className="optionsListmain">
+                            <ul>
+                                <li className='linkToAllWorkoutscon'><Link className='linkToAllWorkouts' to="/allworkouts">Find New Workouts</Link></li>
+                                <h3 className="deleteworkhead">Delete a Workout</h3>
+
+                                <li>
+                                    <input className='deleteWorkoutInput'
+                                        type="text"
+                                        placeholder="Enter Workout Name to Delete"
+                                        value={deleteName}
+                                        onChange={(e) => setDeleteName(e.target.value)}
+                                    />
+                                    <button className='deleteLiftButton' onClick={handleDeleteLift}>Delete</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div className="optionsOfLift">
-                        <select className="optionsOfLift2" id="targets" value={targets} onChange={(e) => setTargets(e.target.value)}>
-                            <option className="options3" value="">Select an Option</option>
-                            <option value="Upper Body">Upper Body</option>
-                            <option value="Lower Body">Lower Body</option>
-                            <option value="Cardio">Cardio</option>
-                            <option value="Full Body">Full Body Workout</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
 
-                    <div className="">
-                        <input className="commentsOfYourLift" placeholder='Comments/Description'  id="liftComments" type="text" value={liftComments} onChange={(e) => setLiftComments(e.target.value)} />
-                    </div>
+                </div>
 
-                    <div className="createsubmit">
-                        <button className="createButtonSubmit" type='submit'>Create Your Lift</button>
-                    </div>
-                </form>
-                <div className="mainOtherOptions">
-                    <h1 className="otheroptionshead">
-                        Other Options
-                    </h1>
-                    <div className="optionsListmain">
-                    <ul>
-                            <li className='linkToAllWorkoutscon'><Link className='linkToAllWorkouts' to="/allworkouts">Find New Workouts</Link></li>
-                            <h3 className="deleteworkhead">Delete a Workout</h3>
 
-                            <li>
-                                <input className='deleteWorkoutInput'
-                                    type="text"
-                                    placeholder="Enter Workout Name to Delete"
-                                    value={deleteName}
-                                    onChange={(e) => setDeleteName(e.target.value)}
-                                />
-                                <button className='deleteLiftButton' onClick={handleDeleteLift}>Delete</button>
-                            </li>
-                        </ul>
+                <div className='myworkoutscardcon'>
+                    <div >
+
+
+                        <div>
+                            {data.user.lifts.map((lift) => {
+                                return (
+                                    <MyCard lift={lift} key={lift._id} />
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
+
+
+
+
+
             </div>
-            <div className="yourworkoutsheadcon">
-                <h1 className='yourmytitle'>Your Workouts</h1>
-            </div>
 
-            <div className='myworkoutscardcon'>
-                <div >
+            <div className="workoutscardarea">
 
+                <h1 className="yourworkoutshead">Your Workouts</h1>
 
-                    <div>
-                        {data.user.lifts.map((lift) => {
-                            return (
-                                <MyCard lift={lift} key={lift._id} />
-                            )
-                        })}
-                    </div>
+                <div className="yourworkline">
+                    
                 </div>
             </div>
-
 
 
         </div>
+
     )
 }
 
