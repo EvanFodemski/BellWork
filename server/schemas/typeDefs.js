@@ -81,6 +81,7 @@ const typeDefs = gql`
         addDescription(userId: ID!, description: String): User
         createSchedule(userId: ID!, name: String!): Schedule
         addDays(scheduleId: ID!, amount: Int!): Schedule
+        addExcercise(dayId: ID!, excerciseId: ID!): Days
     }
 `;
 

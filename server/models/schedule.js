@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 
 
 const scheduleSchema = new Schema({
@@ -13,9 +13,8 @@ const scheduleSchema = new Schema({
                 required: true,
             },
             excercise : {
-                type: String,
-                required: false,
-                trim: true,
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Lift'
             },
         }
     ],

@@ -90,22 +90,22 @@ const resolvers = {
                 }
             );
         },
-        addDays: async (_, {
-            scheduleId,
-            amount
-        }) => {
-            return Schedule.findOneAndUpdate(
-                { _id: scheduleId },
-                {
-                    $addToSet: { days: { amount } }
-                },
-                {
-                    new: true,
-                    runValidators: true,
+        addDays: async (_, { scheduleId, amount }) => {
+            try {
+                const days = await Schedule.findByIdAndUpdate(scheduleId);
+                if(!days) {
+                    throw new Error('Not a Valid Schedule ID')
                 }
-            );
-        
+
+                days.days.push({ amount });
+                await days.save();
+                return days;
+            }  catch (error) {
+                throw new Error(error); 
+            }
         },
+
+    
        
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
