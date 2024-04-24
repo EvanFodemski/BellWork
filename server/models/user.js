@@ -34,6 +34,12 @@ const userSchema = new Schema({
             ref: 'Lift'
         },
     ],
+    schedules: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Schedule'
+        }
+    ],
     friends: [
         {
             type: Schema.Types.ObjectId,

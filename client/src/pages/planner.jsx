@@ -74,6 +74,17 @@ function Planner() {
 
 
             {/* Dynamic Scheduling based on selected amount of days */}
+
+            <div className="lowerhalfplan">
+
+                <div className="lowermainwriting">
+                    <h1 className="lowerhead">
+                        
+                    </h1>
+                </div>
+
+
+
             {days && (
                 <div className="scheduleCon">
                     {renderDays(days)}
@@ -81,6 +92,9 @@ function Planner() {
                 </div>
             )}
 
+
+            </div>
+            
 
 
 

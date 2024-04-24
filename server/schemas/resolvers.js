@@ -1,4 +1,4 @@
-const { User, Lift } = require('../models')
+const { User, Lift, Schedule } = require('../models')
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -10,6 +10,10 @@ const resolvers = {
         lifts: async (_, args) => { return Lift.find() },
 
         lift: async (_, { _id }) => Lift.findById(_id),
+
+        // schedule: async (_, { _id}) => Schedule.findById(_id),
+
+        // schedules: async (_, args) => { return Schedule.find() },
 
         excercises: async (_, { liftId }) => {
             const lift = await Lift.findById(liftId);
@@ -63,6 +67,17 @@ const resolvers = {
 
             }
         },
+        createSchedule: async (parent, { name, days , userId}, context) => {
+            if (userId) {
+                const schedule = await Schedule.create({ name, days, userId})
+
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $push: { schedules: schedule._id }}
+                )
+                return schedule;
+            }
+        },
         addExercise: async (_, { liftId, name, sets, reps, comments }) => {
             return Lift.findOneAndUpdate(
                 { _id: liftId },
@@ -75,7 +90,7 @@ const resolvers = {
                 }
             );
         },
-
+       
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
                 const user = await User.findById(userId);
@@ -204,12 +219,16 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
-    
+
+      
 
 
 
 
     }
+
+
+    
 }
 
 

@@ -9,6 +9,7 @@ const typeDefs = gql`
         friends: [User]
         description: String
         notifications: [Notification] 
+        schedules: [Schedule]   
     }
 
     type Lift {
@@ -21,6 +22,13 @@ const typeDefs = gql`
         liftComments: String
         createdAt: String!
         excercises: [Excercise]
+    }
+
+    type Schedule {
+        _id: ID
+        name: String!
+        days: Int!
+        scheduleComments: String
     }
 
     type Excercise {
@@ -52,7 +60,6 @@ const typeDefs = gql`
         excercises(liftId: ID!): [Excercise]
         me: User
         notifications: [Notification] 
-
     }
 
     type Mutation {
@@ -66,7 +73,9 @@ const typeDefs = gql`
         addLiftToYours(userId: ID!, liftId: ID!): User
         addFriend(userId: ID!, friendName: String!): User
         addDescription(userId: ID!, description: String): User
+        createSchedule(userId: ID!, name: String!, days: Int!): Schedule
     }
 `;
+
 
 module.exports = typeDefs;
