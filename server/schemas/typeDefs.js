@@ -27,8 +27,14 @@ const typeDefs = gql`
     type Schedule {
         _id: ID
         name: String!
-        days: Int!
+        days: [Days]
         scheduleComments: String
+    }
+
+    type Days {
+        _id: ID
+        amount: Int!
+        excercises: [Excercise]
     }
 
     type Excercise {
@@ -73,7 +79,8 @@ const typeDefs = gql`
         addLiftToYours(userId: ID!, liftId: ID!): User
         addFriend(userId: ID!, friendName: String!): User
         addDescription(userId: ID!, description: String): User
-        createSchedule(userId: ID!, name: String!, days: Int!): Schedule
+        createSchedule(userId: ID!, name: String!): Schedule
+        addDays(scheduleId: ID!, amount: Int!): Schedule
     }
 `;
 

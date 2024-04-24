@@ -90,6 +90,22 @@ const resolvers = {
                 }
             );
         },
+        addDays: async (_, {
+            scheduleId,
+            amount
+        }) => {
+            return Schedule.findOneAndUpdate(
+                { _id: scheduleId },
+                {
+                    $addToSet: { days: { amount } }
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            );
+        
+        },
        
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
