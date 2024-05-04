@@ -5,7 +5,6 @@
 
 
 
-
 # BELL workout buddy
 
 Brief description... If your reading this this app is in progress
