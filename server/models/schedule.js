@@ -6,23 +6,15 @@ const scheduleSchema = new Schema({
         type: String,
         required: true,
     },
-    days: [
+    day: [
         {
-            amount: {
-                type: Number,
-                required: true,
-            },
-            excercise : {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Lift'
-            },
+            type: Schema.Types.ObjectId,
+            ref: 'Lift'
         }
-    ],
-    scheduleComments: {
-        type: String,
-        required: false,
-        trim: true,
-    }
+    ]
+    
+
+    
 });
 
 

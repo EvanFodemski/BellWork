@@ -43,7 +43,7 @@ function Planner() {
             {/* Top two bars of planning page */}
             <div className="plannerheads">
                 <div className="plannerhead">Your Trainging Schedule</div>
-                <div className="headerlower">Schedule your workouts for a week, or a month</div>
+                <div className="headerlower">Schedule your Workouts.</div>
             </div>
 
 

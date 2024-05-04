@@ -67,17 +67,21 @@ const resolvers = {
 
             }
         },
-        createSchedule: async (parent, { name, days , userId}, context) => {
+        createSchedule: async (_, { name, userId, day }) => {
             if (userId) {
-                const schedule = await Schedule.create({ name, days, userId})
+                const schedule = await Schedule.create({ name, day });
 
                 await User.findOneAndUpdate(
                     { _id: userId },
-                    { $push: { schedules: schedule._id }}
+                    { $push: { schedules: schedule._id } },
                 )
                 return schedule;
             }
         },
+        
+        
+        
+        
         addExercise: async (_, { liftId, name, sets, reps, comments }) => {
             return Lift.findOneAndUpdate(
                 { _id: liftId },
@@ -90,23 +94,7 @@ const resolvers = {
                 }
             );
         },
-        addDays: async (_, { scheduleId, amount }) => {
-            try {
-                const days = await Schedule.findByIdAndUpdate(scheduleId);
-                if(!days) {
-                    throw new Error('Not a Valid Schedule ID')
-                }
-
-                days.days.push({ amount });
-                await days.save();
-                return days;
-            }  catch (error) {
-                throw new Error(error); 
-            }
-        },
-
     
-       
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
                 const user = await User.findById(userId);
@@ -174,7 +162,7 @@ const resolvers = {
                     message: `${user.username} has added you as a friend!`,
                     timestamp: new Date(),
                 };
-                
+
                 friend.notifications.push(notification);
                 await friend.save();
 
@@ -185,18 +173,18 @@ const resolvers = {
         },
         addDescription: async (_, { description, userId }) => {
             try {
-                
+
                 const updatedUser = await User.findByIdAndUpdate(
                     userId,
-                    { description: description }, 
-                    { new: true, runValidators: true } 
+                    { description: description },
+                    { new: true, runValidators: true }
                 );
-        
+
                 if (!updatedUser) {
                     throw new Error("User not found.");
                 }
-        
-                return updatedUser; 
+
+                return updatedUser;
             } catch (error) {
                 throw new Error("Failed to update description: " + error.message);
             }
@@ -208,11 +196,11 @@ const resolvers = {
                     { $inc: { likes: 1 } }, // Increment likes by 1
                     { new: true }
                 );
-    
+
                 if (!lift) {
                     throw new Error('No lift found with this id!');
                 }
-    
+
                 return lift;
             } catch (error) {
                 throw new Error(error.message);
@@ -225,26 +213,17 @@ const resolvers = {
                     { $inc: { dislikes: 1 } }, // Increment dislikes by 1
                     { new: true }
                 );
-    
+
                 if (!lift) {
                     throw new Error('No lift found with this id!');
                 }
-    
+
                 return lift;
             } catch (error) {
                 throw new Error(error.message);
             }
         },
-
-      
-
-
-
-
     }
-
-
-    
 }
 
 
