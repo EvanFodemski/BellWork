@@ -38,6 +38,23 @@ mutation CreateWorkout($name: String!, $targets: String!, $userId: ID!, $liftCom
 }
 `;
 
+export const CREATE_SCHEDULE=gql`
+mutation CreateSchedule($userId: ID!, $name: String!) {
+  createSchedule(userId: $userId, name: $name) {
+    _id
+    name
+  }
+}
+`;
+
+export const ADD_DAY = gql `
+mutation AddDay($scheduleId: ID!, $liftId: ID!) {
+  addDay(scheduleId: $scheduleId, liftId: $liftId) {
+    _id
+  }
+}
+`;
+
 export const ADD_LIFT=gql`
 mutation AddLiftToYours($userId: ID!, $liftId: ID!) {
   addLiftToYours(userId: $userId, liftId: $liftId) {
