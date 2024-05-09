@@ -100,9 +100,8 @@ const resolvers = {
             );
         },
 
-        
-        addDay: async (_, {scheduleId, liftId}) =>{
 
+        addDay: async (_, {scheduleId, liftId}) =>{
 
 
             try{
