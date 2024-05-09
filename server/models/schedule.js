@@ -6,12 +6,10 @@ const scheduleSchema = new Schema({
         type: String,
         required: true,
     },
-    day: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Lift'
-        }
-    ]
+    days: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Day'
+    }]
     
 
     

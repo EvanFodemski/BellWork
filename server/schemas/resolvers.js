@@ -84,8 +84,9 @@ const resolvers = {
                 return schedule;
             }
         },
+
         
-        
+
         addExercise: async (_, { liftId, name, sets, reps, comments }) => {
             return Lift.findOneAndUpdate(
                 { _id: liftId },
@@ -98,7 +99,27 @@ const resolvers = {
                 }
             );
         },
-    
+
+        addDay: async (_, {scheduleId, liftId}) =>{
+            try{
+                const schedule = await Schedule.findById(scheduleId);
+                if(!schedule){
+                    throw new Error('No schedule found with this id!');
+                }
+
+                const lift = await Lift.findById(liftId);
+                if(!lift){
+                    throw new Error('No lift found with this id!');
+                }
+
+                schedule.days.push(lift);
+                await schedule.save();
+                return schedule;
+            } catch ( error ){
+                throw new Error("There was an error adding your day to the schedule!")
+            }
+        },
+
 
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
