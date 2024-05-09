@@ -38,6 +38,8 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+
+
         login: async (_, { email, password }) => {
             const user = await User.findOne({ email });
 
@@ -54,6 +56,8 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+
+
         createWorkout: async (parent, { name, targets, liftComments, excercises, userId }, context) => {
             if
                 (userId) {
@@ -67,6 +71,8 @@ const resolvers = {
 
             }
         },
+
+
         createSchedule: async (_, { name, userId, day }) => {
             if (userId) {
                 const schedule = await Schedule.create({ name, day });
@@ -78,8 +84,6 @@ const resolvers = {
                 return schedule;
             }
         },
-        
-        
         
         
         addExercise: async (_, { liftId, name, sets, reps, comments }) => {
@@ -95,6 +99,7 @@ const resolvers = {
             );
         },
     
+
         addLiftToYours: async (_, { userId, liftId }) => {
             try {
                 const user = await User.findById(userId);
@@ -117,6 +122,7 @@ const resolvers = {
             }
         },
 
+
         deleteWorkout: async (_, { name }) => {
             try {
                 const lift = await Lift.findOne({ name });
@@ -137,6 +143,7 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
+
 
         addFriend: async (_, { userId, friendName }) => {
             try {
@@ -171,6 +178,8 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
+
+
         addDescription: async (_, { description, userId }) => {
             try {
 
@@ -189,6 +198,8 @@ const resolvers = {
                 throw new Error("Failed to update description: " + error.message);
             }
         },
+
+
         addLike: async (_, { liftId }) => {
             try {
                 const lift = await Lift.findByIdAndUpdate(
@@ -206,6 +217,8 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
+
+        
         addDisLike: async (_, { liftId }) => {
             try {
                 const lift = await Lift.findByIdAndUpdate(
