@@ -65,6 +65,8 @@ const typeDefs = gql`
         excercises(liftId: ID!): [Excercise]
         me: User
         notifications: [Notification] 
+        schedules: [Schedule]
+        schedule(_id: ID!): Schedule
     }
 
     type Mutation {

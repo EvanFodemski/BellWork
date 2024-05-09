@@ -23,6 +23,7 @@ const resolvers = {
             }
             return lift.excercises;
         },
+        
 
 
         me: async (_, __, { user }) => {
