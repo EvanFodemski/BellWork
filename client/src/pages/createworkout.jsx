@@ -30,7 +30,7 @@ const CreateWorkout = ({ onCreateEvent }) => {
             setTargets('');
             setLiftComments('');
         } catch (error) {
-            console.error(error);
+            console.error(error, "Error In form submit function: createworkoutjsx");
         }
     };
 
