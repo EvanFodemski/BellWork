@@ -101,6 +101,7 @@ const resolvers = {
         },
 
         addDay: async (_, {scheduleId, liftId}) =>{
+            
             try{
                 const schedule = await Schedule.findById(scheduleId);
                 if(!schedule){
